@@ -1,0 +1,141 @@
+//包围盒求交
+float2 intersectBox(float3 Rayo, float3 Rayd, float3 boxmin, float3 boxmax)
+{
+	float3 invR = float3(1, 1, 1)/Rayd;
+	float3 tbot = invR * (boxmin - Rayo);
+	float3 ttop = invR * (boxmax - Rayo);
+
+	float3 tmin = min(tbot, ttop);
+	float3 tmax = max(tbot, ttop);
+
+	float largest_tmin = max(max(tmin.x, tmin.y), max(tmin.x, tmin.z));
+	float smallest_tmax = min(min(tmax.x, tmax.y), min(tmax.x, tmax.z));
+
+	return float2(largest_tmin, smallest_tmax);
+}
+
+//求梯度
+float3 getNormal(sampler3D volume, float4 samplePos, float3 offset)
+{	
+	float3 sample1, sample2;
+	sample1.x = f1tex3D(volume, samplePos + float4(offset.x, 0, 0, 0));
+	sample2.x = f1tex3D(volume, samplePos - float4(offset.x, 0, 0, 0));
+	sample1.y = f1tex3D(volume, samplePos + float4(0, offset.y, 0, 0));
+	sample2.y = f1tex3D(volume, samplePos - float4(0, offset.y, 0, 0));
+	sample1.z = f1tex3D(volume, samplePos + float4(0, 0, offset.z, 0));
+	sample2.z = f1tex3D(volume, samplePos - float4(0, 0, offset.z, 0));
+	return normalize((sample2 - sample1) / 2.0);
+}
+
+float4 fp_RayCastingShader(float4 texCoord : TEXCOORD0,
+						   uniform sampler3D   volume,
+						   uniform sampler3D   region1,
+						   uniform sampler3D   region2,
+						   uniform sampler3D   region3,
+						   uniform sampler3D   region4,
+						   uniform sampler1D   transferFunction,
+						   uniform float4x4 viewMatrix,
+						   uniform float step,
+						   uniform float opacity,
+						   uniform float2 imageParam,
+						   uniform float3 dimension,
+						   uniform float3 spacing,
+						   uniform float4 illumParam,
+						   uniform float4 opacities,
+						   uniform float4 featurecolor1,
+						   uniform float4 featurecolor2,
+						   uniform float4 featurecolor3,
+						   uniform float4 featurecolor4): COLOR
+{
+
+	float imageW = imageParam.x, imageH = imageParam.y;
+	float maxdim = max(dimension.x * spacing.x, max(dimension.y * spacing.y, dimension.z * spacing.z));
+	float3 boundingbox = dimension * spacing / maxdim;
+	float4 direction = float4(0, 0, -1, 0);
+	direction = mul(viewMatrix, direction);
+	direction = normalize(direction);
+	float maxSize = min(imageW, imageH);
+	float4 screenPos = float4(texCoord.x / maxSize * 2 - imageW / maxSize, texCoord.y / maxSize * 2 - imageH / maxSize, 2, 1);
+	screenPos = mul(viewMatrix, screenPos);
+	float3 boxMin = -0.5 * boundingbox;
+	float3 boxMax = 0.5 * boundingbox;
+	float2 res = intersectBox(screenPos.xyz, direction.xyz, boxMin, boxMax);
+	float tnear = res.x;
+	float tfar = res.y;
+	if(res.x >= res.y)
+		discard;
+	float4 startPos;
+	float4 endPos;
+	startPos.xyz = (screenPos.xyz + tnear * direction) / boxMax * 0.5 + 0.5;
+	endPos.xyz = (screenPos.xyz + tfar * direction) / boxMax * 0.5 + 0.5;
+	float steps = sqrt(dot(endPos.xyz - startPos.xyz, endPos.xyz - startPos.xyz)) / step;
+	direction.xyz = normalize(direction.xyz / boundingbox);
+	float4 samplePoint = startPos;
+	float ambientParam = illumParam.x, diffuseParam = illumParam.y, shininessParam = illumParam.z, specularParam = illumParam.w;
+
+	float4 color   = float4(0, 0, 0, 0);
+	for(int i = 0; i < 1024; ++i) 
+	{		
+		if(i >= steps)
+			break;
+
+		float scalar = f1tex3D(volume, samplePoint);
+		//float mark = f1tex3D(region1, samplePoint);
+		float4 sampledColor = f4tex1D(transferFunction, scalar);
+		//if(mark > 0) 
+		//{
+			//if(sampledColor.a > 0)
+				//sampledColor = 0.8 * sampledColor + 0.2 * float4(1, 1, 0, 0.05 * mark);
+			//else
+				//sampledColor = float4(1, 1, 0, 0.05 * mark);
+		//}
+
+		float mark1 = f1tex3D(region1, samplePoint) * opacities.x;
+		float mark2 = f1tex3D(region2, samplePoint) * opacities.y;
+		float mark3 = f1tex3D(region3, samplePoint) * opacities.z;
+		float mark4 = f1tex3D(region4, samplePoint) * opacities.w;
+		float mark = mark1 + mark2 + mark3 + mark4;
+		float4 featuresColor = mark1 * featurecolor1 + mark2 * featurecolor2 + mark3 * featurecolor3 + mark4 * featurecolor4;
+		featuresColor = featuresColor / mark / 255;
+		//mark = max(mark1, mark2);
+		//mark = max(mark, mark3);
+		//mark = max(mark, mark4);
+		mark = mark1 + mark2 + mark3 + mark4;
+		featuresColor.a = opacity * mark;
+		if(mark > 0) 
+		{
+			if(sampledColor.a > 0)
+				sampledColor = 0.8 * sampledColor + 0.2 * featuresColor;
+			else
+				sampledColor = featuresColor;
+		}
+
+		float3 lightdir = viewMatrix._m02_m12_m22;
+		float3 halfway = viewMatrix._m02_m12_m22;
+		lightdir = normalize(lightdir / boundingbox);
+		halfway = normalize(halfway / boundingbox);
+
+		//float3 normal = getNormal(volume, samplePoint, 1 / dimension) ;
+		float3 normal = getNormal(region1, samplePoint, 1 / dimension) ;
+		normal = normalize(normal);
+
+		// compute diffuse lighting component
+		float diffuse = max(dot(lightdir, normal), 0);
+		// compute specular lighting component
+		float specular = pow(max(dot(halfway, normal), 0), shininessParam);
+		if(diffuse <= 0) specular = 0;
+		// compute output color
+		sampledColor.rgb = ambientParam * sampledColor.rgb + diffuseParam * diffuse * sampledColor.rgb + specularParam * specular * float3(1, 1, 1);
+		
+		color = color + sampledColor * float4(sampledColor.aaa, 1) * (1 - color.a);
+
+		// early termination
+		if(color.a > 0.99)
+			break;
+		samplePoint = samplePoint + direction * step;
+	}
+
+	//color = color + float4(1, 1, 1, 0) * (1 - color.a);
+	color.a = 1.0;
+	return color;
+}

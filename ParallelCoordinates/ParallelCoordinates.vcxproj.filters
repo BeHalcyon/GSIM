@@ -1,0 +1,450 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;cxx;c;def</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h</Extensions>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>moc;h;cpp</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Generated Files\Debug">
+      <UniqueIdentifier>{c6117162-3b90-4b23-9078-bedc849fd513}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Generated Files\Release">
+      <UniqueIdentifier>{40637500-b3ce-4e21-adba-37b3da77fac5}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="shader">
+      <UniqueIdentifier>{8be9b62e-5aba-4c7b-9cbf-0e402085c033}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1dtf">
+      <UniqueIdentifier>{91bade04-9f74-4301-b3ba-f52e5ec32f19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util">
+      <UniqueIdentifier>{c9eac2ba-bd31-400d-aa9a-10a33a7852c0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mainwindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\qrc_mainwindow.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_renderWidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_renderWidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="renderWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="1dtf\HistogramPainter.cpp">
+      <Filter>1dtf</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_HistogramPainter.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_HistogramPainter.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="1dtf\IntensityHistogram.cpp">
+      <Filter>1dtf</Filter>
+    </ClCompile>
+    <ClCompile Include="1dtf\TF1D.cpp">
+      <Filter>1dtf</Filter>
+    </ClCompile>
+    <ClCompile Include="1dtf\TF1DCanvas.cpp">
+      <Filter>1dtf</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_TF1DCanvas.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_TF1DCanvas.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="1dtf\TF1DWidget.cpp">
+      <Filter>1dtf</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_TF1DWidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_TF1DWidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="1dtf\Volume.cpp">
+      <Filter>1dtf</Filter>
+    </ClCompile>
+    <ClCompile Include="util\ArcBall.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="util\Camera.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="util\framebufferObject.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="util\func.color.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="util\func.matrix.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="util\Functions.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="util\log.cc">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="util\observer.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="util\Quaternion.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="util\Shader.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="util\ShaderProgram.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="util\Texture.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_calEntropy.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_calEntropy.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="calEntropy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bicluster.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="parallelCoordinate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_parallelCoordinate.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_parallelCoordinate.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ControlPanel.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ControlPanel.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_biclusters.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_biclusters.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="hierarchyTree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_hierarchyTree.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_hierarchyTree.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="scatterPlot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleMatrix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mainslice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="donutbreakdownchart.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_mainslice.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_mainslice.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_donutbreakdownchart.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="legend.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_legend.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="classifier.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_colorbar.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="colorbar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_colorbar.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="setView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_setView.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="setViewHeader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_setViewHeader.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="disDistribution.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_disDistribution.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="define.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_RenderProperty.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_RenderProperty.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_MyDoubleSpinBox.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_mainwindow.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_scatterPlot.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="mainwindow.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="mainwindow.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="mainwindow.qrc">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="renderWidget.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="1dtf\HistogramPainter.h">
+      <Filter>1dtf</Filter>
+    </CustomBuild>
+    <CustomBuild Include="1dtf\TF1DCanvas.h">
+      <Filter>1dtf</Filter>
+    </CustomBuild>
+    <CustomBuild Include="1dtf\TF1DWidget.h">
+      <Filter>1dtf</Filter>
+    </CustomBuild>
+    <CustomBuild Include="TF1DWidget.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="entropyHistogram.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="calEntropy.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="biclusters.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="parallelCoordinate.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="controlPanel.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ControlPanel.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hierarchyTree.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="scatterPlot.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="mainslice.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="donutbreakdownchart.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="legend.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="colorbar.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="setView.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="setViewHeader.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="disDistribution.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="renderproperties.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="RenderProperty.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="MyDoubleSpinBox.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GeneratedFiles\ui_mainwindow.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="1dtf\IntensityHistogram.h">
+      <Filter>1dtf</Filter>
+    </ClInclude>
+    <ClInclude Include="1dtf\TF1D.h">
+      <Filter>1dtf</Filter>
+    </ClInclude>
+    <ClInclude Include="1dtf\Volume.h">
+      <Filter>1dtf</Filter>
+    </ClInclude>
+    <ClInclude Include="1dtf\VolumeMeta.h">
+      <Filter>1dtf</Filter>
+    </ClInclude>
+    <ClInclude Include="util\ArcBall.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\Camera.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\CanvasObserver.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\framebufferObject.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\func.color.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\func.math.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\func.matrix.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\Functions.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\log.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\matrix2.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\matrix3.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\matrix4.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\observer.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\Quaternion.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\Shader.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\ShaderData.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\ShaderProgram.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\Texture.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\util.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\Vector2.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\Vector3.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\Vector4.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_TF1DWidget.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_entropyHistogram.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="define.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_controlPanel.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleMatrix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="classifier.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_renderproperties.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="fp_PositionShader.cg">
+      <Filter>shader</Filter>
+    </None>
+    <None Include="fp_RayCastingShader.cg">
+      <Filter>shader</Filter>
+    </None>
+  </ItemGroup>
+</Project>

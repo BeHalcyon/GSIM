@@ -1,0 +1,4 @@
+float3 fp_PositionShader(float3 texCoord : TEXCOORD0) : COLOR
+{
+	return texCoord;
+}
